@@ -11,7 +11,7 @@ fig1 = plt.figure(1, figsize=(18,18))
 
 
 neo['timestamp'] = pd.to_datetime(neo['timestamp'], format='%Y-%m-%d %H:%M:%S')
-plt1 = plt.plot(neo.timestamp,neo['Power'], label='Dryer profile', color='red', marker='.', markersize='1')
+plt1 = plt.plot(neo.timestamp,neo['Power'], label='EV profile', color='red', marker='.', markersize='1')
 plt.xlabel('Time')
 plt.ylabel('Real Power (W)')
 plt.legend()
