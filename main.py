@@ -5,36 +5,26 @@ import datetime
 import matplotlib.ticker as ticker
 from matplotlib.ticker import AutoMinorLocator
 
-neo = pd.read_csv('Testing1_15_dryer_cycles.csv')
+neo = pd.read_csv('EV2.csv')
+neo.columns =['timestamp', 'Power']
 fig1 = plt.figure(1, figsize=(18,18))
 
 
 neo['timestamp'] = pd.to_datetime(neo['timestamp'], format='%Y-%m-%d %H:%M:%S')
-
-
-plt1 = plt.plot(neo.timestamp,neo['Dryer Power'], label='Dryer profile', color='red', marker='.', markersize='1')
-
+plt1 = plt.plot(neo.timestamp,neo['Power'], label='Dryer profile', color='red', marker='.', markersize='1')
 plt.xlabel('Time')
 plt.ylabel('Real Power (W)')
-
 plt.legend()
 
 # ax is an axes object, e.g. from figure.get_axes()
 ax = fig1.get_axes()[0].xaxis
-#print(ax)
 
-
-# Hide major tick labels
+# Hide major tick labels:
 ax.set_major_formatter(ticker.NullFormatter())
 
-
-# Customize minor tick labels
-
-
+# Customize minor tick labels:
 minor_locator = AutoMinorLocator(2)
 ax.set_minor_locator(minor_locator)
-
-#ax.set_minor_locator(ticker.FixedLocator([0.5,1.5,2.5,3.5,4.5,5.5,6.5]))
 ax.set_minor_formatter(ticker.FixedFormatter(['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday', 'Saturday']))
 plt.tick_params(axis='x',which='minor',bottom=False,top=False,labelbottom=True)
 plt.grid()
