@@ -8,7 +8,7 @@ This program takes in a CSV with a timestamp column and a real power column and 
 
 ## Requirements
 ```
-pip install pandas matplotlib datetime
+pip install pandas matplotlib 
 ```
 
 ### To get the code
